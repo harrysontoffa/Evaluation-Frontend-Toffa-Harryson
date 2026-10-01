@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-
+import { GeoCity } from "../models/models";
 @Injectable({
   providedIn: 'root'
 })
@@ -7,14 +7,14 @@ import { Injectable } from "@angular/core";
 export class WeatherService{
   private apiUrl = 'https://geocoding-api.open-meteo.com/v1/search'
 
-  async getWeatherData(){
+  async getWeatherData(query: string):Promise<GeoCity[]>{
     try {
-      const reponseApi= await fetch(this.apiUrl)
+       const reponseApi= await fetch(`${this.apiUrl}?name=${encodeURIComponent(query)}&count=5&language=fr`)
       if(!reponseApi.ok){
         throw new Error('Erreur lors de la recuperation de données');
       }
       const data = await reponseApi.json()
-      return data.results[0]
+      return data.results??[]
     } catch (error) {
       console.error('Erreur API:' , error)
       throw error
