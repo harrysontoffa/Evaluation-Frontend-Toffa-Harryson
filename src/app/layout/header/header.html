@@ -15,7 +15,10 @@
         <li>  <a routerLink="/login" >Login</a> </li>
     </ul>
   </div>
-  <button (click)="SeDeconneecter()" class="bg-blue-500 font-semibold rounded-sm p-3 text-white" >Deconnexion</button>
+  @if (authService.utilisateur()){
+    <button (click)="SeDeconneecter()" class="bg-blue-500 font-semibold rounded-sm p-3 text-white" >Deconnexion</button>
+  }
+
 </div>
 </div>
 

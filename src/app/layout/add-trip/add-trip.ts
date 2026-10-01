@@ -23,8 +23,10 @@ export class AddTrip {
   handleSearch(value: string){
     this.villeRechercher.set(value)
     if(value.trim().length<2){
-      this.search.emit(value.trim());
+
+      return
     }
+    this.search.emit(value.trim());
   }
 
   ChoixVille(villeTrouvé: GeoCity){
