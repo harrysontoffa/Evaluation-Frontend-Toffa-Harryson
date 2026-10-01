@@ -1,0 +1,14 @@
+
+<div class="flex min-h-screen items-center justify-center bg-slate-900 p-4">
+  <fieldset class="fieldset  bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend text-purple-500 font-boldtext text-2xl ">Login</legend>
+
+  <label class="label">Email</label>
+  <input [(ngModel)]="email" type="email" class="input" placeholder="Email" />
+
+  <label class="label">Password</label>
+  <input [(ngModel)]="password" type="password" class="input" placeholder="Password" />
+
+  <button (click)="onLogin()" class="btn btn-neutral mt-4">Login</button>
+</fieldset>
+</div>
