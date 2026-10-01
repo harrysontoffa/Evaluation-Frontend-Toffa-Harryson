@@ -14,6 +14,7 @@ export class AuthGuardService implements CanActivate{
   private router: Router = inject(Router)
 
   canActivate(): Observable<boolean> {
+    console.log('Garde appellé')
     return new Observable<boolean>((observer)=>{
        const desabonner = onAuthStateChanged(this.auth, (user)=>{
         if(user){
